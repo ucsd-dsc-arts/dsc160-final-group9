@@ -27,7 +27,7 @@ For the project proposal, please write a short abstact addressing the questions 
 
 All sharing a Chinese cultural background, our group decides to base this generative art project primarily on music production of popular Chinese song tracks.
 <p align="center"> 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.subpng.com%2Fpng-e407vt%2F&psig=AOvVaw3770rktrfy8LdGT_cCDoEn&ust=1590301533632000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCA-4WtyekCFQAAAAAdAAAAABAI">
+<img width=500px src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/TikTok_logo.svg/1920px-TikTok_logo.svg.png">
 </p>
 TikTok is a video-sharing social networking service owned by ByteDance, that has become one of the most downloaded mobile apps of the decade. With increasingly emerging markets all around the world, musics created, played, and sang on TikTok trend with great popularities, and pieces that top the charts of "most played songs on TikTok" has become a commonly referenced benchmark in China for signs of "trendy music." With this idea in mind, our group hopes to study these popular songs, and generate music pieces as well as lyrics from these TikTok Top-Played Musics. 
 Specifically, we would be looking at 
