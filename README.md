@@ -1,4 +1,4 @@
-# Project Title
+# TikTok Trendy Music & Lyrics Generation
 
 DSC160 Data Science and the Arts - Final Project - Generative Arts - Spring 2020
 
@@ -23,19 +23,11 @@ Building upon text generation with RNN introduced in class, we will be practicin
 Judging from our prior understandings of most-played TikTok musics, we are anticipating the generated music piece to have a "poppy" or "bouncy" melody similar to most of those on the current chart. Although we do not expect the generated lyrics to make perfect sense, we do anticipate the overall content to convey of a "lovely theme" -- as this is again, what we are seeing from the latest songs topping the chart.<br><br>
 Our project results would then be presented as a video clip of a sang out piece of our generated lyrics together with the generated audio piece as the background music. Lyrics are to be sang in Chinese, therefore we will also be providing a running display in the video of the exact lyrics (in Mandarin Chinese with English translations).<br><br>
 Ideas and concepts of this work references a few prior projects and papers listed as follows:
-- @proceedings{midime,
-title = {MidiMe: Personalizing a MusicVAE model with user data},
-editor = {Monica Dinculescu and Jesse Engel and Adam Roberts},
-year = {2019},
-booktitle = {Workshop on Machine Learning for Creativity and Design, NeurIPS}
-}
 
+- [MidiMe: Personalizing a MusicVAE model with user data](https://research.google/pubs/pub48628/)
 - [Generation of music pieces using machine learning: long short-term memory neural networks approach](https://www.tandfonline.com/doi/full/10.1080/25765299.2019.1649972)
-
 - [Neural Nets for Generating Music](https://medium.com/artists-and-machine-intelligence/neural-nets-for-generating-music-f46dffac21c0)
-
 - [Classical Piano Composer](https://github.com/Skuldur/Classical-Piano-Composer)
-
 - [Play it again, AI: a look at Google Magenta and Machine Learning for audio](https://tech.uqido.com/2020/02/13/play-it-again-ai-a-look-at-google-magenta-and-machine-learning-for-audio/)
 
 ## Data and Model
