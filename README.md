@@ -3,11 +3,11 @@
 DSC160 Data Science and the Arts - Final Project - Generative Arts - Spring 2020
 
 Project Team Members: 
-- Firstname Lastname1, name1@ucsd.edu
-- Firstname Lastname2, name2@ucsd.edu
-- Firstname Lastname3, name3@ucsd.edu
-- Firstname Lastname4, name4@ucsd.edu
-- Firstname Lastname5, name5@ucsd.edu
+- Jou-Ying Lee, jol067@ucsd.edu
+- Yunlin Tang, yut085@ucsd.edu
+- Yupei Zhou, yuz522@ucsd.edu
+- Sizhu Chen, sic100@ucsd.edu
+- Yuanbo Shi, yus263@ucsd.edu
 
 ## Abstract
 
@@ -24,6 +24,14 @@ For the project proposal, please write a short abstact addressing the questions 
 - How are you expanding on topics we have covered in class? 
 - Why is it interesting? (personally, culturally, politically, other)
 - List three papers / art projects that are references for this work.
+
+All sharing a Chinese cultural background, our group decides to base this generative art project primarily on music production of popular Chinese song tracks.
+<p align="center"> 
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.subpng.com%2Fpng-e407vt%2F&psig=AOvVaw3770rktrfy8LdGT_cCDoEn&ust=1590301533632000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCA-4WtyekCFQAAAAAdAAAAABAI">
+</p>
+TikTok is a video-sharing social networking service owned by ByteDance, that has become one of the most downloaded mobile apps of the decade. With increasingly emerging markets all around the world, musics created, played, and sang on TikTok trend with great popularities, and pieces that top the charts of "most played songs on TikTok" has become a commonly referenced benchmark in China for signs of "trendy music." With this idea in mind, our group hopes to study these popular songs, and generate music pieces as well as lyrics from these TikTok Top-Played Musics. 
+Specifically, we would be looking at 
+
 
 ## Data and Model
 
