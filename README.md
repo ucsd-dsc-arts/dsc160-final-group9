@@ -41,6 +41,13 @@ In the final submission, this section will describe both the data you use for th
   - [Title of Paper with Link]().
 - Training data. Short description of training data including bibliographic info. [link to data]().
 
+### Model
+Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. 
+
+### Data
+All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
+
+
 ## Code
 
 (20 points)
