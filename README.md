@@ -193,3 +193,4 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- https://packages.debian.org/sid/libfluidsynth1
 	- https://pythonhosted.org/pafy/
 	- https://pypi.org/project/midi2audio/
+	- http://www.fluidsynth.org/api/
