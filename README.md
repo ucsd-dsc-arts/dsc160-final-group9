@@ -133,9 +133,8 @@ macOS users can also install with Homebrew:
 #### [MelodyRNN.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb)
 Processing included in this notebook relies greatly on `Magenta`, especially `magenta.music` for music generation. This library provides numerous Machine Learning Models built with <i>TensorFlow</i>, and therefore they run faster on a GPU. For this reason, this notebook is implemented with commands to be run on <b>Google Colab</b>.<br>
 The following is included in the notebook already, and shall be run for proper execution of later codes.<br>
-Setup environment and important dependencies as:
-<pre><code>#@title Setup Environment
-%tensorflow_version 1.x
+Setup environment as:
+<pre><code>%tensorflow_version 1.x
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -143,15 +142,19 @@ from __future__ import unicode_literals
 
 import glob
 
-print('Copying checkpoint from GCS...')
 #!rm -r /content/onsets-frames
 !mkdir /content/onsets-frames
 !gsutil -q -m cp -R gs://magentadata/models/onsets_frames_transcription/* /content/onsets-frames/
 !unzip -o /content/onsets-frames/maestro_checkpoint.zip -d /content/onsets-frames
-CHECKPOINT_DIR = '/content/onsets-frames/train'
-  
-print('Installing dependencies...')
-!apt-get update -qq && apt-get install -qq libfluidsynth1 fluid-soundfont-gm build-essential libasound2-dev libjack-dev ffmpeg  
+CHECKPOINT_DIR = '/content/onsets-frames/train'</code></pre>
+Important dependendies are to be installed and imported:<br>
+`libfluidsynth1` is a real-time MIDI software synthesizer.<br>
+`pyfluidsynth` is a Python bindings for FluidSynth, a MIDI synthesizer that uses SoundFont instruments.<br>
+`pretty_midi` contains function/classes for handling MIDI data.<br>
+`pafy` is a Python library to download YouTube content and retrieve metadata.<br>
+`spleeter` is a library and <i>Tensorflow</i> model that achives state-of-the-art source separation from audio files.<br>
+`magenta` is a <i>Tensorflow</i> library that explores machine learning in processes of creating art and music.
+<pre><code>!apt-get update -qq && apt-get install -qq libfluidsynth1 fluid-soundfont-gm build-essential libasound2-dev libjack-dev ffmpeg  
 !pip install pyfluidsynth pretty_midi youtube-dl Pafy
 !pip install spleeter
 
@@ -160,10 +163,10 @@ import pafy
 if glob.glob('/content/onsets-frames/magenta*.whl'):
   !pip install -q /content/onsets-frames/magenta*.whl
 else:
-  !pip install -qU magenta
+  !pip install -qU magenta</code></pre>
 
-# Hack to allow python to pick up the newly-installed fluidsynth lib. 
-# This is only needed for the hosted Colab environment.
+This is the hack to allow python to pick up the newly-installed fluidsynth lib, and is only needed for the hosted Colab environment.
+<pre><code>
 import ctypes.util
 orig_ctypes_util_find_library = ctypes.util.find_library
 def proxy_find_library(lib):
@@ -171,7 +174,8 @@ def proxy_find_library(lib):
     return 'libfluidsynth.so.1'
   else:
     return orig_ctypes_util_find_library(lib)
-ctypes.util.find_library = proxy_find_library</code></pre>
+ctypes.util.find_library = proxy_find_library
+</code></pre> 
 
 ## Reference
 
@@ -180,5 +184,11 @@ All references to papers, techniques, previous work, repositories you used shoul
 - Repositories
 	- https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn
 	- https://github.com/ytdl-org/youtube-dl
+	- https://github.com/tensorflow/magenta
 - Blog posts
 	- https://tech.uqido.com/2020/02/13/play-it-again-ai-a-look-at-google-magenta-and-machine-learning-for-audio/
+- Others
+	- https://craffel.github.io/pretty-midi/
+	- https://pypi.org/project/pyFluidSynth/
+	- https://packages.debian.org/sid/libfluidsynth1
+	- https://pythonhosted.org/pafy/
