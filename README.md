@@ -65,7 +65,8 @@ Details regarding this model is linked ![here](https://github.com/tensorflow/mag
 
 This section will link to the various code for your project (stored within this repository). Your code should be executable on datahub, should we choose to replicate your result. This includes code for:
 
-- code for data acquisition/scraping
+- audio-to-midi: `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
+- MelodyRNN: complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
 - training code (if appropriate)
 - generative methods
@@ -97,7 +98,14 @@ The subsequent paragraphs could address questions including:
 
 ## Team Roles
 
-Provide an account of individual members and their efforts/contributions to the specific tasks you accomplished.
+- Jou-Ying Lee
+	- Wrote Abstract
+	- Obtained and processed audio and text data
+	- Completed MelodyRNN modelling (MelodyRNN.ipynb)
+- Yunlin Tang, yut085@ucsd.edu
+- Yupei Zhou, yuz522@ucsd.edu
+- Sizhu Chen, sic100@ucsd.edu
+- Yuanbo Shi, yus263@ucsd.edu
 
 ## Technical Notes and Dependencies
 
