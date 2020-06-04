@@ -166,16 +166,16 @@ else:
   !pip install -qU magenta</code></pre>
 
 This is the hack to allow python to pick up the newly-installed fluidsynth lib, and is only needed for the hosted Colab environment.
-<pre><code>
-import ctypes.util
+<pre><code>import ctypes.util
 orig_ctypes_util_find_library = ctypes.util.find_library
 def proxy_find_library(lib):
   if lib == 'fluidsynth':
     return 'libfluidsynth.so.1'
   else:
     return orig_ctypes_util_find_library(lib)
-ctypes.util.find_library = proxy_find_library
-</code></pre> 
+ctypes.util.find_library = proxy_find_library</code></pre>
+`midi2audio` makes it easy to use MIDI to audio or playback via FluidSynth.<pre><code>!pip install midi2audio</code></pre>
+`fluidsynth` is a software synthesizer based on the SoundFont 2 specifications. This additional installation is required for `midi2audio` to properly work for our purpose.<pre><code>!sudo apt-get install fluidsynth</code></pre>
 
 ## Reference
 
@@ -192,3 +192,4 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- https://pypi.org/project/pyFluidSynth/
 	- https://packages.debian.org/sid/libfluidsynth1
 	- https://pythonhosted.org/pafy/
+	- https://pypi.org/project/midi2audio/
