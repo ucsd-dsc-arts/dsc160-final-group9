@@ -51,31 +51,24 @@ This model is made available from `magenta.music`. It is an LSTM-based language 
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
-2. Text-Generation
-	- Lyrics_Generation_RNN:<br>
-A summary of our RNN model is as follows:
-    |Layer (type)            |Output Shape     |Param #  |    
-    |------------------------|:---------------:|:-------:|
-    |embedding_2 (Embedding) |(1, None, 300)   |1042800  |  
-    |cu_dnngru_2 (CuDNNGRU)  |(1, None, 1024)  |4073472  |  
-    |cu_dnngru_3 (CuDNNGRU)  |(1, None, 1024)  |6297600  |   
-    |dense_2 (Dense)         |(1, None, 3476)  |3562900  |
+2. Lyrics Generation
+	- RNN:  
+  A summary of our RNN model is as follows:
+  |Layer (type)              |Output Shape     |Param #  |    
+  |--------------------------|-----------------|---------|
+  |embedding_2 (Embedding)   |(1, None, 300)   |1042800  |  
+  |cu_dnngru_2 (CuDNNGRU)    |(1, None, 1024)  |4073472  |  
+  |cu_dnngru_3 (CuDNNGRU)    |(1, None, 1024)  |6297600  |   
+  |dense_2 (Dense)           |(1, None, 3476)  |3562900  |
 
-    Total params: 14,976,772  
-    Trainable params: 14,976,772  
-    Non-trainable params: 0
-
-    A summary of our LSTM model is as follows:
-    |Layer (type)              |Output Shape     |Param #  |    
-    |--------------------------|:---------------:|:-------:|
-    |embedding_3 (Embedding)   |(1, None, 300)   |1042800  |  
-    |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
-    |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |   
-    |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
-
-    Total params: 18,433,796  
-    Trainable params: 18,433,796  
-    Non-trainable params: 0
+  - LSTM:  
+  A summary of our LSTM model is as follows:
+  |Layer (type)              |Output Shape     |Param #  |    
+  |--------------------------|:----------------|---------|
+  |embedding_3 (Embedding)   |(1, None, 300)   |1042800  |  
+  |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
+  |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |   
+  |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
 
 #### Data
 - All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
@@ -92,7 +85,7 @@ This section will link to the various code for your project (stored within this 
 - [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
 - [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
-- [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete '.ipynb' file with lyrics processing, model training and lyrics generation.
+- [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete `.ipynb` file with lyrics processing, model training and lyrics generation.
 - training code (if appropriate)
 - generative methods
 
@@ -118,7 +111,7 @@ This section should summarize your results and will embed links to documentation
 ![](results/melody_rnn/bokeh_plot_rnn_meow.png)
 
 ### Lyrics Generation
-<b>Lyrics_generation_rnn<b>
+<b>Lyrics_generation_rnn</b>
 
 ## Discussion
 
@@ -213,10 +206,10 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 
 #### [Lyrics_generation_rnn.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
 The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The installation command
-<pre><code>pip install jieba --user</code></pre>
+<pre><code>!pip install jieba --user</code></pre>
 is at the beginning of this file.
 
-Since our models use the GPU variant of [RNN](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM) and [LSTM](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU) layers, we recommend that the file should be run on DataHub.  
+Since our models use the GPU variant of [RNN](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU) and [LSTM](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM) layers, we recommend that the file should be run on DataHub.  
 
 ## Reference
 
