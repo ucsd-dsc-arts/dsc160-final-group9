@@ -44,14 +44,14 @@ In the final submission, this section will describe both the data you use for th
 #### Model
 Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. <br>
 1. Audio Generation
-- Classical-Piano-Composer: 
+	- Classical-Piano-Composer:<br>
 
-- MelodyRNN:
+	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
 For our particular implemented model, we leveraged pre-trained ![basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked ![here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
-- Text-Generator:
+	- Text-Generator:
 
 #### Data
 All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
