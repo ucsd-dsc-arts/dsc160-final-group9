@@ -125,7 +125,7 @@ Any implementation details or notes we need to repeat your work.
 
 Our codes are solely based on Python programming language. The following packages and libraries are therefore all of Python dependencies. While most ipynb files include necessary pip installs within themselves, there are some additional installs needed.<br>
 #### [audio-to-midi.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb)
-- `youtube-dl` package enables downloading videos from youtube.com or other video platforms<br>
+- `youtube-dl` package enables downloading videos from youtube.com or other video platforms
 pip installation can be done by:<br>
 <pre><code>sudo -H pip install --upgrade youtube-dl</code></pre>
 macOS users can also install with Homebrew:
