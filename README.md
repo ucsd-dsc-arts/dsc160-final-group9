@@ -48,16 +48,16 @@ Our project can be broken down to two major parts, that is audio generation and 
 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
-For our particular implemented model, we leveraged pre-trained ![basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
+For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
 2. Text-Generation
-	- (model goes here)<br>
+	- model goes here<br>
 
 #### Data
 - All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
-- Our audio datas are originally videos obtained from ![Youtube](https://www.youtube.com/) and ![bilibili](https://www.bilibili.com/). ![audio_midi.py] contains all videos acquired. This python file is then imported into ![audio-to-midi] for processing and conversions into `.wav` files (saved ![audio_wav]) and eventually into `MIDI` (saved)![audio_mid].<br>
-- Each of these scraped song's lyrics are saved as individual `rtf` files in ![lyrics].
+- Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/). ![audio_midi.py](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio_midi.py) contains all videos acquired. This python file is then imported into ![audio-to-midi] for processing and conversions into `.wav` files (saved) [audio_wav](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_wav) and eventually into `MIDI` (saved) [audio_mid](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_mid).<br>
+- Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
 
 ## Code
 
@@ -65,8 +65,8 @@ Details regarding this model is linked [here](https://github.com/tensorflow/mage
 
 This section will link to the various code for your project (stored within this repository). Your code should be executable on datahub, should we choose to replicate your result. This includes code for:
 
-- audio-to-midi: `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
-- MelodyRNN: complete `.ipynb` file with MelodyRNN's modelling and generative tasks
+- [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
+- [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
 - training code (if appropriate)
 - generative methods
