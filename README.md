@@ -145,7 +145,7 @@ from __future__ import unicode_literals
 
 import glob
 
-#!rm -r /content/onsets-frames
+!rm -r /content/onsets-frames
 !mkdir /content/onsets-frames
 !gsutil -q -m cp -R gs://magentadata/models/onsets_frames_transcription/* /content/onsets-frames/
 !unzip -o /content/onsets-frames/maestro_checkpoint.zip -d /content/onsets-frames
