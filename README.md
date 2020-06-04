@@ -111,6 +111,8 @@ The subsequent paragraphs could address questions including:
 	- Wrote Abstract
 	- Obtained and processed audio and text data
 	- Completed MelodyRNN modelling (MelodyRNN.ipynb)
+	- Drafted <i>Results</i> for MelodyRNN in the corresponding section.
+	- Finished composition of <i>Technical Notes and Dependencies</i> for <i>audio-to-midi.ipynb</i> and <i>MelodyRNN.ipynb</i>
 - Yunlin Tang, yut085@ucsd.edu
 - Yupei Zhou, yuz522@ucsd.edu
 - Sizhu Chen, sic100@ucsd.edu
@@ -131,7 +133,7 @@ pip installation can be done by:<br>
 macOS users can also install with Homebrew:
 <pre><code>brew install youtube-dl</code></pre>
 #### [MelodyRNN.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb)
-Processing included in this notebook relies greatly on `Magenta`, especially `magenta.music` for music generation. This library provides numerous Machine Learning Models built with <i>TensorFlow</i>, and therefore they run faster on a GPU. For this reason, this notebook is implemented with commands to be run on <b>Google Colab</b>.<br>
+Processing included in this notebook relies greatly on `Magenta`, especially `magenta.music` for music generation. This library provides numerous Machine Learning Models built with <i>TensorFlow</i>, and therefore they run faster on a GPU. For this reason, this notebook is implemented with commands to be run on <b><i>Google Colab</i></b>.<br>
 The following is included in the notebook already, and shall be run for proper execution of later codes.<br>
 Setup environment as:
 <pre><code>%tensorflow_version 1.x
