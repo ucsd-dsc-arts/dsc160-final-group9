@@ -125,11 +125,53 @@ Any implementation details or notes we need to repeat your work.
 
 Our codes are solely based on Python programming language. The following packages and libraries are therefore all of Python dependencies. While most ipynb files include necessary pip installs within themselves, there are some additional installs needed.<br>
 #### [audio-to-midi.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb)
-- `youtube-dl` package enables downloading videos from youtube.com or other video platforms
+`youtube-dl` package enables downloading videos from youtube.com or other video platforms
 pip installation can be done by:<br>
 <pre><code>sudo -H pip install --upgrade youtube-dl</code></pre>
 macOS users can also install with Homebrew:
 <pre><code>brew install youtube-dl</code></pre>
+#### [MelodyRNN.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb)
+Processing included in this notebook relies greatly on `Magenta`, especially `magenta.music` for music generation. This library provides numerous Machine Learning Models built with <i>TensorFlow</i>, and therefore they run faster on a GPU. For this reason, this notebook is implemented with commands to be run on <b>Google Colab</b>.<br>
+The following is included in the notebook already, and shall be run for proper execution of later codes.<br>
+Setup environment and important dependencies as:
+<pre><code>#@title Setup Environment
+%tensorflow_version 1.x
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
+
+import glob
+
+print('Copying checkpoint from GCS...')
+#!rm -r /content/onsets-frames
+!mkdir /content/onsets-frames
+!gsutil -q -m cp -R gs://magentadata/models/onsets_frames_transcription/* /content/onsets-frames/
+!unzip -o /content/onsets-frames/maestro_checkpoint.zip -d /content/onsets-frames
+CHECKPOINT_DIR = '/content/onsets-frames/train'
+  
+print('Installing dependencies...')
+!apt-get update -qq && apt-get install -qq libfluidsynth1 fluid-soundfont-gm build-essential libasound2-dev libjack-dev ffmpeg  
+!pip install pyfluidsynth pretty_midi youtube-dl Pafy
+!pip install spleeter
+
+import pafy
+
+if glob.glob('/content/onsets-frames/magenta*.whl'):
+  !pip install -q /content/onsets-frames/magenta*.whl
+else:
+  !pip install -qU magenta
+
+# Hack to allow python to pick up the newly-installed fluidsynth lib. 
+# This is only needed for the hosted Colab environment.
+import ctypes.util
+orig_ctypes_util_find_library = ctypes.util.find_library
+def proxy_find_library(lib):
+  if lib == 'fluidsynth':
+    return 'libfluidsynth.so.1'
+  else:
+    return orig_ctypes_util_find_library(lib)
+ctypes.util.find_library = proxy_find_library</code></pre>
 
 ## Reference
 
@@ -137,5 +179,6 @@ All references to papers, techniques, previous work, repositories you used shoul
 - Papers
 - Repositories
 	- https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn
+	- https://github.com/ytdl-org/youtube-dl
 - Blog posts
 	- https://tech.uqido.com/2020/02/13/play-it-again-ai-a-look-at-google-magenta-and-machine-learning-for-audio/
