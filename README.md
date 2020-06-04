@@ -49,7 +49,7 @@ Our project can be broken down to two major parts, that is audio generation and 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
 For our particular implemented model, we leveraged pre-trained ![basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
-Details regarding this model is linked ![here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
+Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
 2. Text-Generation
 	- (model goes here)<br>
