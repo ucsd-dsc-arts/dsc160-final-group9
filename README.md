@@ -54,21 +54,20 @@ Details regarding this model is linked [here](https://github.com/tensorflow/mage
 2. Lyrics Generation
 	- RNN:  
   A summary of our RNN model is as follows:  
-  |Layer (type)              |Output Shape     |Param #  |    
-  |--------------------------|-----------------|---------|
+  |Layer (type)              |Output Shape     |Param #  |  
+  |--------------------------|-----------------|---------|  
   |embedding_2 (Embedding)   |(1, None, 300)   |1042800  |  
   |cu_dnngru_2 (CuDNNGRU)    |(1, None, 1024)  |4073472  |  
-  |cu_dnngru_3 (CuDNNGRU)    |(1, None, 1024)  |6297600  |   
-  |dense_2 (Dense)           |(1, None, 3476)  |3562900  |
-
-  - LSTM:  
-  A summary of our LSTM model is as follows:  
-  |Layer (type)              |Output Shape     |Param #  |    
-  |--------------------------|:----------------|---------|
-  |embedding_3 (Embedding)   |(1, None, 300)   |1042800  |  
-  |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
-  |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |   
-  |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
+  |cu_dnngru_3 (CuDNNGRU)    |(1, None, 1024)  |6297600  |  
+  |dense_2 (Dense)           |(1, None, 3476)  |3562900  |  
+    - LSTM:  
+    A summary of our LSTM model is as follows:  
+    |Layer (type)              |Output Shape     |Param #  |  
+    |--------------------------|:----------------|---------|  
+    |embedding_3 (Embedding)   |(1, None, 300)   |1042800  |  
+    |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
+    |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |  
+    |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
 
 #### Data
 - All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
