@@ -52,44 +52,34 @@ For our particular implemented model, we leveraged pre-trained [basic_rnn](http:
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
 2. Text-Generation
-	- Text_Generation_RNN<br>
+	- Lyrics_Generation_RNN:<br>
 A summary of our RNN model is as follows:
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_2 (Embedding)      (1, None, 300)            1042800   
-_________________________________________________________________
-cu_dnngru_2 (CuDNNGRU)       (1, None, 1024)           4073472   
-_________________________________________________________________
-cu_dnngru_3 (CuDNNGRU)       (1, None, 1024)           6297600   
-_________________________________________________________________
-dense_2 (Dense)              (1, None, 3476)           3562900   
-=================================================================
-Total params: 14,976,772
-Trainable params: 14,976,772
-Non-trainable params: 0
-_________________________________________________________________
+    |Layer (type)            |Output Shape     |Param #  |    
+    |------------------------|:---------------:|:-------:|
+    |embedding_2 (Embedding) |(1, None, 300)   |1042800  |  
+    |cu_dnngru_2 (CuDNNGRU)  |(1, None, 1024)  |4073472  |  
+    |cu_dnngru_3 (CuDNNGRU)  |(1, None, 1024)  |6297600  |   
+    |dense_2 (Dense)         |(1, None, 3476)  |3562900  |
 
-A summary of our LSTM model is as follows:
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #   
-=================================================================
-embedding_3 (Embedding)      (1, None, 300)            1042800   
-_________________________________________________________________
-cu_dnnlstm_2 (CuDNNLSTM)     (1, None, 1024)           5431296   
-_________________________________________________________________
-cu_dnnlstm_3 (CuDNNLSTM)     (1, None, 1024)           8396800   
-_________________________________________________________________
-dense_3 (Dense)              (1, None, 3476)           3562900   
-=================================================================
-Total params: 18,433,796
-Trainable params: 18,433,796
-Non-trainable params: 0
-_________________________________________________________________ 
+    Total params: 14,976,772  
+    Trainable params: 14,976,772  
+    Non-trainable params: 0
+
+    A summary of our LSTM model is as follows:
+    |Layer (type)              |Output Shape     |Param #  |    
+    |--------------------------|:---------------:|:-------:|
+    |embedding_3 (Embedding)   |(1, None, 300)   |1042800  |  
+    |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
+    |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |   
+    |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
+
+    Total params: 18,433,796  
+    Trainable params: 18,433,796  
+    Non-trainable params: 0
 
 #### Data
 - All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
-- Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/). 
+- Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/).
 - [audio_midi.py](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio_midi.py) contains all videos acquired. This python file is then imported into [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb) for processing and conversions into `.wav` files (saved) [audio_wav](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_wav) and eventually into `MIDI` (saved) [audio_mid](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_mid).<br>
 - Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
 
@@ -102,7 +92,7 @@ This section will link to the various code for your project (stored within this 
 - [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
 - [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
-- [Lyrics generation](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete '.ipynb' file with lyrics processing, model training and lyrics generation.
+- [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete '.ipynb' file with lyrics processing, model training and lyrics generation.
 - training code (if appropriate)
 - generative methods
 
@@ -121,13 +111,14 @@ This section should summarize your results and will embed links to documentation
 ### Audio Generation
 <b>MelodyRNN</b>
 - In an attempt to compare our generated song from Classical-Piano-Composer with actual songs currently on the <i>TikTok Trendy Music Chart</i>, we utilized a typical and popular song that has been long trending on Tiktok: <i>Meow Meow Meow</i>. This song's main Chorus was extracted and fed into our pre-trained MelodyRNN model to study the song's underlying stylistic components, and generate continuing notes for later use of inspecting if that generated by Classical-Piano-Composer resembles fashions of actual songs on the current chart.
-- In order to ensure comparing component is only on musical styles, we made sure that the generated melodic sequence are of the same length. `temperature`, as an important hyper-parameter in MelodyRNN to manipulate how random the output sequence is, is also maintained to be `1.7` throughout all model fittings as well. 
+- In order to ensure comparing component is only on musical styles, we made sure that the generated melodic sequence are of the same length. `temperature`, as an important hyper-parameter in MelodyRNN to manipulate how random the output sequence is, is also maintained to be `1.7` throughout all model fittings as well.
 - This first graph is a visualization of the prediction data which according to the model best approximates the notes that when played on the piano at the predicted time frames and with the predicted velocities would produce <i>Meow Meow Meow</i>. This graph is done using <i>Bokeh</i>, and therefore is interactive if you view it in [MelodyRNN.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb).<br>
 ![](results/melody_rnn/bokeh_plot_rendered_meow.png)
 - This following second graph plots the generated new <i>Meow Meow Meow</i> (audio file linked [here](results/melody_rnn/rnn_meow.wav)). With time frames all set the same, it can be seen from this comparison, that the generated notes seem to on average each last shorter in time. As we can see that those blocks in this graph tends to be smaller (horizontally) compared to those above. One thing to also notice is how this generated audio shows higher notes to the end of our output sequence than the original rendered song. This might be due to the model learning the overall notes in the training sequence being highly upbeat, and therefore producing an output trend at the end of increasing pitch. However, this might just be a generalized discussion, more precise analysis would be needed for more accurate justifications.<br>
 ![](results/melody_rnn/bokeh_plot_rnn_meow.png)
 
 ### Lyrics Generation
+<b>Lyrics_generation_rnn<b>
 
 ## Discussion
 
@@ -220,12 +211,12 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 `midi2audio` makes it easy to use MIDI to audio or playback via FluidSynth.<pre><code>!pip install midi2audio</code></pre>
 `fluidsynth` is a software synthesizer based on the SoundFont 2 specifications. This additional installation is required for `midi2audio` to properly work for our purpose.<pre><code>!sudo apt-get install fluidsynth</code></pre>
 
-#### [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
-The only additional package to install for this file is [jieba] (https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The installation command
+#### [Lyrics_generation_rnn.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
+The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The installation command
 <pre><code>pip install jieba --user</code></pre>
 is at the beginning of this file.
 
-Since our models use the GPU variant of [RNN](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM) and LSTM[https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU] layers, we recommend that the file should be run on DataHub.  
+Since our models use the GPU variant of [RNN](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM) and [LSTM](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU) layers, we recommend that the file should be run on DataHub.  
 
 ## Reference
 
