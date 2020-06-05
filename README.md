@@ -113,7 +113,7 @@ This section should summarize your results and will embed links to documentation
 
 ### Lyrics Generation
 <b>Lyrics_generation_rnn</b>  
-- The reason we choose to use word-level models is that character-level models do not perform so well. We experiment with character-level models and the results generally don't make too much sense in Chinese. This is why we use the jieba package to segment the corpus into words and train our models on these words. A caveat of this is that the segmentation is not necessarily 100% correct since jieba uses essentially a probabilistic model to find the most probable result and there are cases when it does perform ideally.
+- The reason we choose to use word-level models is that character-level models do not perform so well. We experiment with character-level models and the results generally don't make too much sense in Chinese. This is why we use the jieba package to segment the corpus into words and train our models on these words. A caveat of this is that the segmentation is not necessarily 100% correct since jieba uses essentially a probabilistic model to find the most probable result and there are cases when it does not perform ideally.
 - We train the RNN model for 30 epochs and the LSTM model for 50 epochs. The training loss of both models are as follows:  
 ![](https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/RNN_loss.png)
 ![](https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/LSTM_loss.PNG)
@@ -215,7 +215,7 @@ The only additional package to install for this file is [jieba](https://github.c
 <pre><code>!pip install jieba --user</code></pre>
 is at the beginning of this file.
 
-Since our models use the GPU variant of [RNN](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU) and [LSTM](https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM) layers, we recommend that the file should be run on DataHub.  
+Since our models use the GPU variant of RNN and LSTM layers, we recommend that the file should be run on DataHub.  
 
 ## Reference
 
