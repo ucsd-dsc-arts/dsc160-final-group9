@@ -51,9 +51,9 @@ This model is made available from `magenta.music`. It is an LSTM-based language 
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
-2. Lyrics Generation
-    - RNN:  
-    A summary of our RNN model is as follows:
+2. Lyrics Generation  
+We train two word-level text generation models using RNN and LSTM. The entire lyrics corpus contains 3476 unique words (some are English words) and we slice the corpus into sequences of length 20 (20 words) for training. The batch size is set to be 64. The structure of these two models are as follows:
+    - RNN:
 
       |Layer (type)              |Output Shape     |Param #  |  
       |--------------------------|-----------------|---------|  
@@ -63,7 +63,6 @@ Details regarding this model is linked [here](https://github.com/tensorflow/mage
       |dense_2 (Dense)           |(1, None, 3476)  |3562900  |
 
     - LSTM:  
-    A summary of our LSTM model is as follows:  
 
       |Layer (type)              |Output Shape     |Param #  |  
       |--------------------------|:----------------|---------|  
@@ -113,7 +112,12 @@ This section should summarize your results and will embed links to documentation
 ![](results/melody_rnn/bokeh_plot_rnn_meow.png)
 
 ### Lyrics Generation
-<b>Lyrics_generation_rnn</b>
+<b>Lyrics_generation_rnn</b>  
+- The reason we choose to use word-level models is that character-level models do not perform so well. We experiment with character-level models and the results generally don't make too much sense in Chinese. This is why we use the jieba package to segment the corpus into words and train our models on these words. A caveat of this is that the segmentation is not necessarily 100% correct since jieba uses essentially a probabilistic model to find the most probable result and there are cases when it does perform ideally.
+- We train the RNN model for 30 epochs and the LSTM model for 50 epochs. The training loss of both models are as follows:  
+![](https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/RNN_loss.png)
+![](https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/LSTM_loss.PNG)
+- When generating lytics using trained models, we set `temperature` to be 1.1 to see some interesting combinations of words. The output from the RNN model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_rnn.txt). The output from the LSTM model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_lstm.txt). We can see that some lines make more sense than others and some lines are very similar to the lyrics corpus that we collect.
 
 ## Discussion
 
