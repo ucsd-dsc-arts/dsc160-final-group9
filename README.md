@@ -211,11 +211,10 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 `fluidsynth` is a software synthesizer based on the SoundFont 2 specifications. This additional installation is required for `midi2audio` to properly work for our purpose.<pre><code>!sudo apt-get install fluidsynth</code></pre>
 
 #### [Lyrics_generation_rnn.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
-The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The installation command
+The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The following installation command is embedded at the beginning of this file.
 <pre><code>!pip install jieba --user</code></pre>
-is at the beginning of this file.
 
-Since our models use the GPU variant of RNN and LSTM layers, we recommend that the file should be run on DataHub.  
+Since models for lyrics generation uses the GPU variant of RNN and LSTM layers, we recommend that the file to be run on DataHub.  
 
 ## Reference
 
