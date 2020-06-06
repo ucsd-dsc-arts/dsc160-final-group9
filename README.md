@@ -142,7 +142,7 @@ The subsequent paragraphs could address questions including:
 	- Finished composition of <i>Technical Notes and Dependencies</i> for <i>audio-to-midi.ipynb</i> and <i>MelodyRNN.ipynb</i>
 - Yunlin Tang, yut085@ucsd.edu
 - Yupei Zhou, yuz522@ucsd.edu
-	- process lyrics data for lyrics generation
+	- Processed lyrics data for lyrics generation
 	- Completed lyrics generation (Lyrics_generation_rnn.ipynb)
 	- Drafted corresponding sections of <i>Results</i> for lyrics generation
 	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>Lyrics_generation_rnn.ipynb</i>
