@@ -134,7 +134,7 @@ The subsequent paragraphs could address questions including:
 
 ## Team Roles
 
-- Jou-Ying Lee
+- Jou-Ying Lee, jol067@ucsd.edu
 	- Wrote Abstract
 	- Obtained and processed audio and text data
 	- Completed MelodyRNN modelling (MelodyRNN.ipynb)
