@@ -1,4 +1,4 @@
-# TikTok Trendy Music & Lyrics Generation
+# TikTok Trendy Music Generation & Lyrics Generation
 
 DSC160 Data Science and the Arts - Final Project - Generative Arts - Spring 2020
 
