@@ -172,6 +172,7 @@ In addition, we also have some concerns about our project such as the limitation
 	- Drafted <i>Results</i> for MelodyRNN in the corresponding section.
 	- Finished composition of <i>Technical Notes and Dependencies</i> for <i>audio-to-midi.ipynb</i> and <i>MelodyRNN.ipynb</i>
 - Yunlin Tang, yut085@ucsd.edu
+	- wrote discussion
 - Yupei Zhou, yuz522@ucsd.edu
 	- Processed lyrics data for lyrics generation
 	- Completed lyrics generation (Lyrics_generation_rnn.ipynb)
