@@ -144,7 +144,7 @@ However, our results from the generative methods actually reflect the social phe
 <img src='http://image.woshipm.com/wp-files/2018/10/HrP7gss0MgGpT0CeVufd.jpg' width="300" height="300">
 <p><i>Illusion for people who has the earworm effect by the Tiktok music</i></p>
 <br>
-<img src='https://wp-en.oberlo.com/wp-content/uploads/2016/07/tiktok-demographics.jpg'>
+<img src='https://wp-en.oberlo.com/wp-content/uploads/2016/07/tiktok-demographics.jpg' width='500'>
 <p><i>Most of Tiktok users are the youth</i></p>
 </div>
 
