@@ -258,8 +258,10 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- https://github.com/tensorflow/magenta
 	- https://github.com/fxsjy/jieba
 	- https://github.com/roberttwomey/dsc160-code/blob/master/examples/text-generation-rnn.ipynb
+	- https://github.com/Skuldur/Classical-Piano-Composer
 - Blog posts
 	- https://tech.uqido.com/2020/02/13/play-it-again-ai-a-look-at-google-magenta-and-machine-learning-for-audio/
+	- https://towardsdatascience.com/text-generation-using-rnns-fdb03a010b9f
 - Others
 	- https://craffel.github.io/pretty-midi/
 	- https://pypi.org/project/pyFluidSynth/
@@ -269,3 +271,6 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- http://www.fluidsynth.org/api/
 	- https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM
 	- https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU
+	- https://en.wikipedia.org/wiki/Earworm 
+	- https://en.wikipedia.org/wiki/Consumerism
+
