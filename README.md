@@ -285,4 +285,5 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU
 	- https://en.wikipedia.org/wiki/Earworm 
 	- https://en.wikipedia.org/wiki/Consumerism
+	- https://www.kdnuggets.com/2020/02/audio-data-analysis-deep-learning-python-part-1.html
 
