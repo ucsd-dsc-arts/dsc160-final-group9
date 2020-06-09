@@ -86,7 +86,7 @@ This section will link to the various code for your project (stored within this 
 - [Audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
 - [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
-- [Melody_Analysis.ipynb](): `ipynb` files for MelodyRNN's result analyses
+- [Melody_Analysis.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/melody_analysis.ipynb): `ipynb` files for MelodyRNN's result analyses
 - [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete `.ipynb` file with lyrics processing, model training and lyrics generation.
 - training code (if appropriate)
 - generative methods
@@ -180,7 +180,7 @@ In addition, we also have some concerns about our project such as the limitation
 - Jou-Ying Lee, jol067@ucsd.edu
 	- Wrote Abstract
 	- Obtained and processed audio and text data
-	- Completed MelodyRNN modelling (MelodyRNN.ipynb)
+	- Completed MelodyRNN's modelling and analysis (MelodyRNN.ipynb, melody_analysis.ipynb)
 	- Drafted <i>Results</i> for MelodyRNN in the corresponding section.
 	- Finished composition of <i>Technical Notes and Dependencies</i> for <i>audio-to-midi.ipynb</i> and <i>MelodyRNN.ipynb</i>
 - Yunlin Tang, yut085@ucsd.edu
