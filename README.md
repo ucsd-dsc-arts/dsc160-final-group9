@@ -116,10 +116,9 @@ It can be seen from the plotted notes, that most of the patterns of the continui
 ![](results/melody_rnn/bokeh_plot_cpt2.png)
 - Considering the following two plotted log-scaled spectograms -- a visual way of representing the signal strength over time at various frequencies present -- the original fitted Classical-Piano-Composer (top), and that output of MelodyRNN (bottom) unsurprisingly shares a same scale of max and min hertz. However, they have pretty different majority spread of their frequencies. By a log-transformation applied on the frequencies, it can be seen that the majority of Classical-Piano-Composer's output has sound intensity above -10dB for log-scaled frequency of between 64 to 512 Hz; While that for the generated melody, hearable log-scaled frequeny mostly falls between 128 to 1024 Hz with a sound intensity of around 10 to 40 dB. <br>
 While it is difficult to tell directly from this comparison why the reason for this is, but one possible explanation may be due to MelodyRNN specifically learning "bumpy" notes and rhythms from the input audio, leading the overall pitch to turn out to be higher.
-<div align='center'>
 ![](results/melody_rnn/spectogram_piano.png)
 ![](results/melody_rnn/spectogram_melody.png)
-</div>
+
 
 ### Lyrics Generation
 <b>Lyrics_generation_rnn</b>  
