@@ -114,7 +114,10 @@ This section should summarize your results and will embed links to documentation
 It can be seen from the plotted notes, that most of the patterns of the continuing melody follows pretty similar trends as that of the input classical-piano-composer. Exception applies to that towards the end of the melody, beginning at around 120s. One thing to notice is that this is the original input piece ends at around 2 minutes, but our generating melody prolongs to a little over this duration. Randomness after this timespan is therefore pretty apparent via this top-bottom comparison.
 ![](results/melody_rnn/bokeh_plot_cpt1.png)
 ![](results/melody_rnn/bokeh_plot_cpt2.png)
-- 
+- Considering the following two plotted log-scaled spectograms -- a visual way of representing the signal strength over time at various frequencies present -- the original fitted Classical-Piano-Composer (top), and that output of MelodyRNN (bottom) unsurprisingly shares a same scale of max and min hertz. However, they have pretty different majority spread of their frequencies. By a log-transformation applied on the frequencies, it can be seen that the majority of Classical-Piano-Composer's output has sound intensity above -10dB for log-scaled frequency of between 64 to 512 Hz; While that for the generated melody, hearable log-scaled frequeny mostly falls between 128 to 1024 Hz with a sound intensity of around 10 to 40 dB. <br>
+While it is difficult to tell directly from this comparison why the reason for this is, but one possible explanation may be due to MelodyRNN specifically learning "bumpy" notes and rhythms from the input audio, and therefore the overall pitch turned out to be higher.
+![](results/melody_rnn/spectogram_piano.png)
+![](results/melody_rnn/spectogram_melody.png)
 
 ### Lyrics Generation
 <b>Lyrics_generation_rnn</b>  
