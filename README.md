@@ -45,6 +45,9 @@ In the final submission, this section will describe both the data you use for th
 Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. <br>
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
+The model we use is a Long Short-Term Memory network, which is able to recognise and encode long-term patterns.<br>
+For our particular implemented model, we leveraged pre-trained model, detailed in lstm.py [lstm] (https://github.com/Skuldur/Classical-Piano-Composer) <br>
+For generating music, we used the model detailed in predict.py [lstm] (https://github.com/Skuldur/Classical-Piano-Composer)<br>
 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
@@ -88,8 +91,8 @@ This section will link to the various code for your project (stored within this 
 - code for preprocessing
 - [Melody_Analysis.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/melody_analysis.ipynb): `ipynb` files for MelodyRNN's result analyses
 - [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete `.ipynb` file with lyrics processing, model training and lyrics generation.
-- training code (if appropriate)
-- generative methods
+- [train_model](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb): complete '.ipynb' file for training lstm model.
+- [generate_music](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb): complete '.ipynb' file for generating music with lstm model.
 
 Link each of these items to your .ipynb or .py files within this seection, and provide a brief explanation of what the code does. Reading this section we should have a sense of how to run your code.
 
