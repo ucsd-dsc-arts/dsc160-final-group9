@@ -194,6 +194,9 @@ In addition, we also have some concerns about our project such as the limitation
 	- Drafted corresponding sections of <i>Results</i> for lyrics generation
 	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>Lyrics_generation_rnn.ipynb</i>
 - Sizhu Chen, sic100@ucsd.edu
+	- Completed PianoComposer's modelling.
+	_ Completed generating music with PianoComposer's mdoel
+	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>train_model.ipynb</i>. 
 - Yuanbo Shi, yus263@ucsd.edu
 
 ## Technical Notes and Dependencies
@@ -261,6 +264,12 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The following installation command is embedded at the beginning of this file.
 <pre><code>!pip install jieba --user</code></pre>
 
+#### [train_model.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb.ipynb)
+We used [Music21](http://web.mit.edu/music21/) for computer-aided musicology, and [keras](https://keras.io) for high-level neural networks API that simplifies interactions with [Tensorflow](https://www.tensorflow.org)
+
+#### [predict.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb.ipynb)
+We used [Music21](http://web.mit.edu/music21/) for computer-aided musicology, and [keras](https://keras.io) for high-level neural networks API that simplifies interactions with [Tensorflow](https://www.tensorflow.org)
+
 Since models for lyrics generation uses the GPU variant of RNN and LSTM layers, we recommend that the file to be run on DataHub.  
 
 ## Reference
@@ -277,6 +286,7 @@ All references to papers, techniques, previous work, repositories you used shoul
 - Blog posts
 	- https://tech.uqido.com/2020/02/13/play-it-again-ai-a-look-at-google-magenta-and-machine-learning-for-audio/
 	- https://towardsdatascience.com/text-generation-using-rnns-fdb03a010b9f
+	- https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5
 - Others
 	- https://craffel.github.io/pretty-midi/
 	- https://pypi.org/project/pyFluidSynth/
@@ -289,4 +299,7 @@ All references to papers, techniques, previous work, repositories you used shoul
 	- https://en.wikipedia.org/wiki/Earworm 
 	- https://en.wikipedia.org/wiki/Consumerism
 	- https://www.kdnuggets.com/2020/02/audio-data-analysis-deep-learning-python-part-1.html
+	- https://keras.io
+	- https://www.tensorflow.org
+	- http://web.mit.edu/music21/
 
