@@ -46,8 +46,8 @@ Our project can be broken down to two major parts, that is audio generation and 
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
 The model we use is a Long Short-Term Memory network, which is able to recognise and encode long-term patterns.<br>
-For our particular implemented model, we leveraged pre-trained model, detailed in lstm.py [lstm] (https://github.com/Skuldur/Classical-Piano-Composer) <br>
-For generating music, we used the model detailed in predict.py [lstm] (https://github.com/Skuldur/Classical-Piano-Composer)<br>
+For our particular implemented model, we leveraged pre-trained model, detailed in lstm.py [lstm](https://github.com/Skuldur/Classical-Piano-Composer) <br>
+For generating music, we used the model detailed in predict.py [lstm](https://github.com/Skuldur/Classical-Piano-Composer)<br>
 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
