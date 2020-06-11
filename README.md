@@ -47,8 +47,8 @@ For generating music, we used the model detailed in predict.py [lstm](https://gi
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Two key hyper-parameters specially tuned and finalized are:<br>
-     `num_steps` -- controls the length of the generated melody -- set to be `300` during training for input <i>Meow Meow Meow</i>; `1200` for input as Classical-Piano-Composer. This difference is to match the length of the input.<br>
-     `temperature` -- controls the randomness of the generated audio -- set to be 1.7 throughout to ensure stylistic discussion is balanced throughout. This number is manually chosen after different tryouts.<br>
+     `num_steps` -- controls the length of the generated melody -- set to be <b>300</b> during training for input <i>Meow Meow Meow</i>; <b>1200</b> for input as <i>Classical-Piano-Composer</i>. This difference is to match the length of the input.<br>
+     `temperature` -- controls the randomness of the generated audio -- set to be <b>1.7</b> throughout to ensure stylistic discussion is balanced throughout. This number is manually chosen after different tryouts.<br>
 Please refer to <i>results</i> section for detailed discussions on hyper-parameters.<br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
