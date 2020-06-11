@@ -47,7 +47,7 @@ Ideas and concepts of this work references a few prior projects and papers liste
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
 The model we use is a Long Short-Term Memory network (i.e. LSTM), which is able to recognise and encode long-term patterns.<br>
-For our particular implemented network, we leveraged on the model, detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer) and trained it by feeding in our data in MIDI format for 200 epoches. <br>
+For our particular implemented model, we passed all obtained audio files in as input data for training. The hyper-parameters sets are as follows (detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer)). <br>
 For generating music, we used the model detailed in predict.py [here](https://github.com/Skuldur/Classical-Piano-Composer).<br>
 The structure of our LSTM network is as following:
       |Layer (type)              |dimensionality of the output space|Fraction of the input units to drop|
