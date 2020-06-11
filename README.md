@@ -60,9 +60,9 @@ The structure of our LSTM network is as following:
       |keras.Dense               |          256                     |             \                     |
       |keras.Dropout             |           \                      |            0.3                    |
       |keras.Dense               |      n_vocab = 526               |             \                     |
-      
-                        
-      
+
+
+
 
 
 
@@ -76,7 +76,7 @@ Please refer to <i>results</i> section for detailed discussions on hyper-paramet
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
 2. Lyrics Generation<br><br>
-We train two word-level text generation models using RNN and LSTM. The entire lyrics corpus contains 3476 unique words (some are English words) and we slice the corpus into sequences of length 20 (20 words) for training. The batch size is set to be 64. The structure of these two models are as follows:
+We train two word-level text generation models using RNN and LSTM. The entire lyrics corpus contains 3476 unique words (some are English words) and we slice the corpus into sequences of length 20 (20 words) for training. The batch size is set to be 64. We tried several numbers for these two parameters and choose 20 and 64 at the end. The structure of these two models are as follows:
     - RNN:
 
       |Layer (type)              |Output Shape     |Param #  |  
@@ -95,6 +95,8 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
       |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |  
       |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
 
+   When generating lyrics using trained models, we use a multinomial distribution based on the model output to predict the next word. And we pass the predicted word alongside all previous states into the model as the next input. `num_generate` defines the number of words to generate and `temperature` controls the randomness of the generated lyrics. We set `num_generate` to be 200 to generate lyrics of reasonable legnth, and we set `temperature` to be 1.1 to see some interesting combination of words in lyrics.
+
 ## Code
 
 (20 points)
@@ -112,9 +114,9 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
 
 ### Audio Generation
 <b>Classical-Piano-Composer</b>
-- We used an LSTM network to generate music after [model training](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb) with roughly 80-min music extracted from the "TikTok Trendy Music Chart". Music format are in MIDI, containing information such as pitch, octave and offset. Based on the characteristics of LSTM networks, they are good at recognizing and encoding long-term patterns. Our model predicts the next note or chord based on the previous one. As a result for [audio generation](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb), we generated 500 notes (or chords) for about 2-min long after we provided the first note (or chord). 
+- We used an LSTM network to generate music after [model training](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb) with roughly 80-min music extracted from the "TikTok Trendy Music Chart". Music format are in MIDI, containing information such as pitch, octave and offset. Based on the characteristics of LSTM networks, they are good at recognizing and encoding long-term patterns. Our model predicts the next note or chord based on the previous one. As a result for [audio generation](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb), we generated 500 notes (or chords) for about 2-min long after we provided the first note (or chord).
 - According to the graph of plotted notes from the output melody (below), we can see that the range of the pitch varies from 40 to 94, which is very broad. Moreover, there are lots of repetitive notes or chords that make some parts of the output melody very unchangeble and not euphonic at all. Lastly, for the second half of the output melody starting from 60s, the presences of repetitive notes (or chords) increase in comparison with those in the first half. ![](results/melody_rnn/bokeh_plot_cpt1.png)
-- The following two plots are visualized chroma features fitted to our two melodies. The first melody is converted from the output MIDI file from the model with training loss <b>4.74</b> at epoch <b>17</b>, while the second melody is output from the model with training loss <b>3.47</b> at the epoch <b>125</b>. Comparing the two graphs, this indicates increasing variations in melody notes as the training epoch increases and training loss decreases. 
+- The following two plots are visualized chroma features fitted to our two melodies. The first melody is converted from the output MIDI file from the model with training loss <b>4.74</b> at epoch <b>17</b>, while the second melody is output from the model with training loss <b>3.47</b> at the epoch <b>125</b>. Comparing the two graphs, this indicates increasing variations in melody notes as the training epoch increases and training loss decreases.
 ![](results/classical_piano_composer/graph.png)
 - We train the LSTM network for <b>200</b> epoches with batch size of <b>64</b>. The training loss is indicated in the following graph.
 <div align="center">
@@ -147,13 +149,34 @@ While it is difficult to tell directly from this comparison why the reason for t
 ### Lyrics Generation
 <b>Lyrics_generation_rnn</b>  
 - The reason we choose to use word-level models is that character-level models do not perform so well. We experiment with character-level models and the results generally don't make too much sense in Chinese. This is why we use the jieba package to segment the corpus into words and train our models on these words. A caveat of this is that the segmentation is not necessarily 100% correct since jieba uses essentially a probabilistic model to find the most probable result and there are cases when it does not perform ideally.
-- We train the RNN model for 30 epochs and the LSTM model for 50 epochs. The training loss of both models are as follows: 
+- We train the RNN model for 30 epochs and the LSTM model for 50 epochs. The reason we train the LSTM for more epochs is that the LSTM model converges more slowly. After 30 epochs for the RNN model and 50 epochs for the LSTM model, both models reach roughly the same level of loss at the end. The training loss of both models are as follows:
 <div align="center">
   <img src="https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/RNN_loss.png">
   <img src="https://raw.githubusercontent.com/ucsd-dsc-arts/dsc160-final-group9/master/results/lyrics_generation_rnn/LSTM_loss.PNG">
 </div>
 
-- When generating lytics using trained models, we set `temperature` to be 1.1 to see some interesting combinations of words. The output from the RNN model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_rnn.txt). The output from the LSTM model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_lstm.txt). We can see that some lines make more sense than others and some lines are very similar to the lyrics corpus that we collect.
+- With `num_generate = 200` and `temperature = 1.1` defined previously, we generate lyrics using both models. We also translate the Chinese lyrics to English by ourselves. The following is a short section of generated lyrics from the RNN model with English translation:  
+
+  雲吃走到人间  
+  Cloud-eat walks to man’s world  
+  我就是你听多  
+  I am just you heard too much      
+  不是我想轉進你的瘋癲  
+  It’s not I want to turn into your insanity
+
+  The following is a short section of generated lyrics from the LSTM model with English translation:
+
+  我最给你就是 过去了    
+  The most I give you is already past   
+  心裡 恨的 我我好  
+  In my heart, the hatred, me myself good,    
+  总是遍 我後  
+  always been to, my back  
+  放下讓我的煞星  
+  Put down the malignant star let me  
+
+  The full generated lyrics from the RNN model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_rnn.txt). The full generated lyrics from the LSTM model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lyrics_lstm.txt). The English translation for lyrics generated by the RNN model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/rnn_translation.docx). And the English translation for lyrics generated by the LSTM model can be found [here](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/lyrics_generation_rnn/lstm_translation.docx).
+- In general, the generated lyrics make some sense. Some lines make more sense than others and some lines are very similar to the lyrics corpus that we collect. One possible reason for this is that the training data is relatively small, so the model is very likely to overfit and generate lines that are similar to lyrics in the training data.
 
 ## Discussion
 
@@ -168,14 +191,14 @@ The generative methods used in our project for music/audio and lyrics are both b
 </div>
 <br>
 
-The main goal of our project is to generate melodies and lyrics that are similar to the trending Tiktok songs. As one of the most recent and popular apps in the Chinese network market, Tiktok (douyin) becomes more and more influential in Chinese society in both the cultural and economical aspects. It is a video-sharing social networking service that is owned by the ByteDance company. Tiktok successfully innovates a new type of social media which allows users to record and post some short videos between 15 seconds to several minutes. It attracts mobile users in several potential ways. For example, it is very convenient to download and use. The viewers can watch the videos and listen to audios by streaming without downloading any actual media files. The creators can simply record and upload their contents by using their mobile phones. Tiktok also offers flexibility and availability for its users to view contents that allow them to utilize the fragments of time and kill the bored. In addition, Tiktok employs several advanced AI algorithms to analyze users’ interests and preferences by digesting their interactions with the posted contents such as “likes”, comments, and the lengths of viewing time. These algorithms can ensure the app to display the most fitted content for users’ personal interests. Such algorithms can constantly provide positive rewards for the human brains in the cognitive process while the users swipe for the next videos and find out that these contents are indeed interesting thus hold the users’ attention. Due to the increased popularity of Tiktok, the background music used in these posted videos also bring their cultural and economical influence on Chinese society, especially on the youth. A key element that contributes to the success of Tiktok is the charm of music. In Tiktok, music artists often use various types of marketing methods to promote their newly released songs such as making dance/song challenges, memes, and cover versions. Other users can simply just add these songs in their own videos to catch the new trend and attract more users for watching. While the original content is powerful, the remixing of music/dance provides other users the opportunities to layer context and self-expression. It is a win-win result for both music producers and other bloggers to facilitate the use of music. Therefore, the application of Tiktok music creates numerous commercial opportunities in the competitive internet market and influences the trend of Chinese music in the real world. 
+The main goal of our project is to generate melodies and lyrics that are similar to the trending Tiktok songs. As one of the most recent and popular apps in the Chinese network market, Tiktok (douyin) becomes more and more influential in Chinese society in both the cultural and economical aspects. It is a video-sharing social networking service that is owned by the ByteDance company. Tiktok successfully innovates a new type of social media which allows users to record and post some short videos between 15 seconds to several minutes. It attracts mobile users in several potential ways. For example, it is very convenient to download and use. The viewers can watch the videos and listen to audios by streaming without downloading any actual media files. The creators can simply record and upload their contents by using their mobile phones. Tiktok also offers flexibility and availability for its users to view contents that allow them to utilize the fragments of time and kill the bored. In addition, Tiktok employs several advanced AI algorithms to analyze users’ interests and preferences by digesting their interactions with the posted contents such as “likes”, comments, and the lengths of viewing time. These algorithms can ensure the app to display the most fitted content for users’ personal interests. Such algorithms can constantly provide positive rewards for the human brains in the cognitive process while the users swipe for the next videos and find out that these contents are indeed interesting thus hold the users’ attention. Due to the increased popularity of Tiktok, the background music used in these posted videos also bring their cultural and economical influence on Chinese society, especially on the youth. A key element that contributes to the success of Tiktok is the charm of music. In Tiktok, music artists often use various types of marketing methods to promote their newly released songs such as making dance/song challenges, memes, and cover versions. Other users can simply just add these songs in their own videos to catch the new trend and attract more users for watching. While the original content is powerful, the remixing of music/dance provides other users the opportunities to layer context and self-expression. It is a win-win result for both music producers and other bloggers to facilitate the use of music. Therefore, the application of Tiktok music creates numerous commercial opportunities in the competitive internet market and influences the trend of Chinese music in the real world.
 <div align='center'>
 <img src='https://www.connectivasystems.com/wp-content/uploads/2020/04/downloads.jpg' width='500'>
 <p><i>The Fast Growth of Tiktok App</i></p>
 </div>
 <br>
 
-However, our results from the generative methods actually reflect the social phenomenon and indicate some potential broader issues. In general, we found out that all of the trending Tiktok music (including the generative output from neural network models) have the same characteristics: simple and similar melody and repeated chords. Most of the Tiktok songs can be classified as catchy songs that have high remembrance and similar melody thus make the listeners passively memorize. According to the earworm effect, these “sticky” music can continually repeat through a person’s mind after it is no longer playing. In order to achieve this effect, many artists and producers choose to make monotonous songs for attracting users and gain popularity in Tiktok since it only offers a short-timed opportunity for displaying the video advertisement. It is no doubt that this marketing strategy is successful; however, it also brings some concerns. First, the “lifetime” of these songs are relatively short. It is easy for these songs to gain popularity in Tiktok, but it is also easy to be decayed and lose prevalence in this fast-paced and competitive market. Since it is cheap to produce such music, the growth in the number of catchy Tiktok songs is accelerated. Therefore, the mobile users in Tiktok would quickly lose the feeling of freshness and move their favor toward other songs since the new songs are continuously emerging. Second, the abuse in the use of earworm melody would potentially harm the variety of music genres and artistic production. While more and more companies and musicians accept the benefits of using simple and similar chords to attract their viewers, the significance of unique and diverse music productions would be underestimated. Third, these catchy songs can be viewed as fast moving consumer goods which evoke negative consumerism in the Chinese society. Some criticism toward consumerism indicates that the strong and unhealthy tendency of people to identify with products or services they consume. Under the influence of consumerism, people pursue fast satiety from cheap or luxury goods as their life goal and value. These catchy songs and their similar lyrics can potentially provide rapid satisfaction for their consumers by giving the illusion of conformity by being a member of the Tiktok community. The Tiktok users, especially the youth, tend to identify themselves as the one who catches up with the popularity thus provide them a sense of belonging. However, such a form of consumerism can possibly harm their critical thinking ability as long as they consume cheap and fast entertaining products such as similar catchy songs and meaningless lyrics as reflected in our results. 
+However, our results from the generative methods actually reflect the social phenomenon and indicate some potential broader issues. In general, we found out that all of the trending Tiktok music (including the generative output from neural network models) have the same characteristics: simple and similar melody and repeated chords. Most of the Tiktok songs can be classified as catchy songs that have high remembrance and similar melody thus make the listeners passively memorize. According to the earworm effect, these “sticky” music can continually repeat through a person’s mind after it is no longer playing. In order to achieve this effect, many artists and producers choose to make monotonous songs for attracting users and gain popularity in Tiktok since it only offers a short-timed opportunity for displaying the video advertisement. It is no doubt that this marketing strategy is successful; however, it also brings some concerns. First, the “lifetime” of these songs are relatively short. It is easy for these songs to gain popularity in Tiktok, but it is also easy to be decayed and lose prevalence in this fast-paced and competitive market. Since it is cheap to produce such music, the growth in the number of catchy Tiktok songs is accelerated. Therefore, the mobile users in Tiktok would quickly lose the feeling of freshness and move their favor toward other songs since the new songs are continuously emerging. Second, the abuse in the use of earworm melody would potentially harm the variety of music genres and artistic production. While more and more companies and musicians accept the benefits of using simple and similar chords to attract their viewers, the significance of unique and diverse music productions would be underestimated. Third, these catchy songs can be viewed as fast moving consumer goods which evoke negative consumerism in the Chinese society. Some criticism toward consumerism indicates that the strong and unhealthy tendency of people to identify with products or services they consume. Under the influence of consumerism, people pursue fast satiety from cheap or luxury goods as their life goal and value. These catchy songs and their similar lyrics can potentially provide rapid satisfaction for their consumers by giving the illusion of conformity by being a member of the Tiktok community. The Tiktok users, especially the youth, tend to identify themselves as the one who catches up with the popularity thus provide them a sense of belonging. However, such a form of consumerism can possibly harm their critical thinking ability as long as they consume cheap and fast entertaining products such as similar catchy songs and meaningless lyrics as reflected in our results.
 
 <div align='center'>
 <img src='http://image.woshipm.com/wp-files/2018/10/HrP7gss0MgGpT0CeVufd.jpg' width="300" height="300">
@@ -208,7 +231,7 @@ In addition, we also have some concerns about our project such as the limitation
 - Sizhu Chen, sic100@ucsd.edu
 	- Completed modellings for Classical-Piano-Composer (train_model.ipynb, predict.ipynb).
   - Completed generating music with PianoComposer's mdoel
-	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>train_model.ipynb</i>. 
+	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>train_model.ipynb</i>.
 - Yuanbo Shi, yus263@ucsd.edu
 	- Summary in result
 	- Made the result video
@@ -272,7 +295,7 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 `fluidsynth` is a software synthesizer based on the SoundFont 2 specifications. This additional installation is required for `midi2audio` to properly work for our purpose.<pre><code>!sudo apt-get install fluidsynth</code></pre>
 
 #### [Lyrics_generation_rnn.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
-Models for lyrics generation uses the GPU variant of RNN and LSTM layers, we therefore recommend files to be run on DataHub. <br> 
+Models for lyrics generation uses the GPU variant of RNN and LSTM layers, we therefore recommend files to be run on DataHub. <br>
 The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The following installation command is embedded at the beginning of this file.
 <pre><code>!pip install jieba --user</code></pre>
 
@@ -310,10 +333,9 @@ This notebook is trained on a set-up keras backend. With the same utlization of 
 	- http://www.fluidsynth.org/api/
 	- https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNLSTM
 	- https://www.tensorflow.org/api_docs/python/tf/compat/v1/keras/layers/CuDNNGRU
-	- https://en.wikipedia.org/wiki/Earworm 
+	- https://en.wikipedia.org/wiki/Earworm
 	- https://en.wikipedia.org/wiki/Consumerism
 	- https://www.kdnuggets.com/2020/02/audio-data-analysis-deep-learning-python-part-1.html
 	- https://keras.io
 	- https://www.tensorflow.org
 	- http://web.mit.edu/music21/
-
