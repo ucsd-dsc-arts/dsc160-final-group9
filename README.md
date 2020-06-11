@@ -47,24 +47,19 @@ Ideas and concepts of this work references a few prior projects and papers liste
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
 The model we use is a Long Short-Term Memory network (i.e. LSTM), which is able to recognise and encode long-term patterns.<br>
-For our particular implemented model, we passed all obtained audio files in as input data for training. The hyper-parameters sets are as follows (detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer)). <br>
-For generating music, we used the model detailed in predict.py [here](https://github.com/Skuldur/Classical-Piano-Composer).<br>
-The structure of our LSTM network is as following:
+For our particular implemented model, we passed all obtained audio files in as input data for training. The hyper-parameters set we utilized follows suggestions detailed [here](https://github.com/Skuldur/Classical-Piano-Composer/blob/master/lstm.py). <br>
+Please refer to [Classical-Piano-Composer](https://github.com/Skuldur/Classical-Piano-Composer) for more details regarding our implementing model.<br>
+The structure of our LSTM network is summarized as the following:
       |Layer (type)              |dimensionality of the output space|Fraction of the input units to drop|
       |--------------------------|----------------------------------|-----------------------------------|
-      |keras.LSTM                |          256                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.LSTM                |          512                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.LSTM.               |          256                     |             \                     |
-      |keras.Dense               |          256                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.Dense               |      n_vocab = 526               |             \                     |
-
-
-
-
-
+      |keras.LSTM                |          256                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.LSTM                |          512                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.LSTM.               |          256                     |             N/A                     |
+      |keras.Dense               |          256                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.Dense               |      n_vocab = 526               |             N/A                     |
 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
@@ -209,8 +204,7 @@ However, our results from the generative methods actually reflect the social phe
 </div>
 
 <br>
-
-In addition, we also have some concerns about our project such as the limitation and ethical issues. In the process of generating audio from different sources, we worry that this generative method would potentially involve some forms of copyright issues and ethical concerns. If it is a violation problem, we would remove our academic publication in order to protect the copyright. When choosing the data, we have limited ourselves by selecting the Chinese songs and omitting other languages, which would affect our results if other popular TikTok songs have been added in. Since we choose to use the piano as the instrument to produce the melody, we are also omitting some songs that do not have the piano cover version. These limitations can be improved in the future for extending our project. To further expand our works, we would consider using the music elements of beat, tempo, and dynamics in audios to generate a more sophisticated result and deploy other neural network models to produce better text and audio prediction. In addition, we can also build on the “singing” part by using the synthesized human voice from models. 
+In addition, it is important for us to address limitations and ethical concerns regarding our project. In the process of generating audios from different sources, we are aware and careful with respecting copyrights that goes with intellectual properties we are working with. However, we also want to address possibilities for us overlooking some unfamiliar policies and therefore violating them out of our will. We are conducting and posting this project purely out of academic publication purposes, and therefore if you find any copyright issues concerned within our scope of discussion, we would greatly appreciate it if you can kindly contact any of us (with contact emails listed on top of this page), and we guarantee to remove contents from this page immediately, or possibly take down this page in respect of obeying relevant rules and regulations. When choosing the data, we have limited ourselves by selecting the Chinese songs and omitting other languages, which would affect our results if other popular TikTok songs have been added in. Since we choose to use the piano as the instrument to produce the melody, we are also omitting some songs that do not have the piano cover version. These limitations can be improved in the future for extending our project. To further expand our works, we would consider using the music elements of beat, tempo, and dynamics in audios to generate a more sophisticated result and deploy other neural network models to produce better text and audio prediction. In addition, we can also build on the “singing” part by using the synthesized human voice from models. 
 
 
 ## Team Roles
