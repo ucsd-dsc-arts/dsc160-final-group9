@@ -189,8 +189,8 @@ In addition, we also have some concerns about our project such as the limitation
 	- Drafted corresponding sections of <i>Results</i> for lyrics generation
 	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>Lyrics_generation_rnn.ipynb</i>
 - Sizhu Chen, sic100@ucsd.edu
-	- Completed PianoComposer's modelling.
-	_ Completed generating music with PianoComposer's mdoel
+	- Completed modellings for Classical-Piano-Composer (train_model.ipynb, predict.ipynb).
+  - Completed generating music with PianoComposer's mdoel
 	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>train_model.ipynb</i>. 
 - Yuanbo Shi, yus263@ucsd.edu
 
@@ -251,16 +251,16 @@ ctypes.util.find_library = proxy_find_library</code></pre>
 `fluidsynth` is a software synthesizer based on the SoundFont 2 specifications. This additional installation is required for `midi2audio` to properly work for our purpose.<pre><code>!sudo apt-get install fluidsynth</code></pre>
 
 #### [Lyrics_generation_rnn.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb)
+Models for lyrics generation uses the GPU variant of RNN and LSTM layers, we therefore recommend files to be run on DataHub. <br> 
 The only additional package to install for this file is [jieba](https://github.com/fxsjy/jieba), which is a great tool for Chinese text segmentation. The following installation command is embedded at the beginning of this file.
 <pre><code>!pip install jieba --user</code></pre>
 
-#### [train_model.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb.ipynb)
-We used [Music21](http://web.mit.edu/music21/) for computer-aided musicology, and [keras](https://keras.io) for high-level neural networks API that simplifies interactions with [Tensorflow](https://www.tensorflow.org)
+#### [train_model.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb)
+This notebook is trained on a set-up keras backend.<br>
+`Music21` is implemented for computer-aided musicology. Installation can be done by:
 
 #### [predict.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb.ipynb)
-We used [Music21](http://web.mit.edu/music21/) for computer-aided musicology, and [keras](https://keras.io) for high-level neural networks API that simplifies interactions with [Tensorflow](https://www.tensorflow.org)
-
-Since models for lyrics generation uses the GPU variant of RNN and LSTM layers, we recommend that the file to be run on DataHub.  
+This notebook is trained on a set-up keras backend. With the same utlization of package `Music21`.
 
 ## Reference
 
