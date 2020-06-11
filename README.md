@@ -60,6 +60,7 @@ The structure of our LSTM network is as following:
       |keras.Dense               |          256                     |                                   |
       |keras.Dropout             |                                  |            0.3                    |
       |keras.Dense               |      n_vocab = 526               |                                   |
+      |--------------------------|----------------------------------|-----------------------------------|
       |keras.Activation          |                   softmax activation function                        |
       
 
