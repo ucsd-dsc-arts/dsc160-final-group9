@@ -36,13 +36,14 @@ Ideas and concepts of this work references a few prior projects and papers liste
 (10 points)
 
 #### Data
-- All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
+- All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.
+- Audio datas are deliberately obtained on piano accompaniments only. This is due to our model training performances purposes.
 - Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/).
 - [audio_midi.py](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio_midi.py) contains all videos acquired. This python file is then imported into [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb) for processing and conversions into `.wav` files (saved) [audio_wav](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_wav) and eventually into `MIDI` (saved) [audio_mid](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_mid).<br>
 - Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
 
 #### Model
-With different goals of applications (audio/text generation), each part is therefore implemented with different models.<br>
+- With different goals of applications (audio/text generation), each part is therefore implemented with different models. Our models are carefully picked based on each's model charactistics, and their functions and relations to our project ideals.<br>
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
 The model we use is a Long Short-Term Memory network (i.e. LSTM), which is able to recognise and encode long-term patterns.<br>
@@ -201,7 +202,7 @@ Our codes are solely based on Python programming language. The following package
 `youtube-dl` package enables downloading videos from youtube.com or other video platforms
 pip installation can be done by:<br>
 <pre><code>sudo -H pip install --upgrade youtube-dl</code></pre>
-macOS users can also install with Homebrew:
+or
 <pre><code>brew install youtube-dl</code></pre>
 #### [MelodyRNN.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb)
 Processing included in this notebook relies greatly on `Magenta`, especially `magenta.music` for music generation. This library provides numerous Machine Learning Models built with <i>TensorFlow</i>, and therefore they run faster on a GPU. For this reason, this notebook is implemented with commands to be run on <b><i>Google Colab</i></b>.<br>
