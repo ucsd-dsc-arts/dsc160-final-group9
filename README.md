@@ -35,6 +35,12 @@ Ideas and concepts of this work references a few prior projects and papers liste
 
 (10 points)
 
+#### Data
+- All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
+- Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/).
+- [audio_midi.py](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio_midi.py) contains all videos acquired. This python file is then imported into [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb) for processing and conversions into `.wav` files (saved) [audio_wav](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_wav) and eventually into `MIDI` (saved) [audio_mid](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_mid).<br>
+- Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
+
 #### Model
 Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. <br>
 1. Audio Generation
@@ -48,7 +54,7 @@ This model is made available from `magenta.music`. It is an LSTM-based language 
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Two key hyper-parameters specially tuned and finalized are:<br>
      `num_steps` -- controls the length of the generated melody -- set to be <b>300</b> during training for input <i>Meow Meow Meow</i>; <b>1200</b> for input as <i>Classical-Piano-Composer</i>. This difference is to match the length of the input.<br>
-     `temperature` -- controls the randomness of the generated audio -- set to be <b>1.7</b> throughout to ensure stylistic discussion is balanced throughout. This number is manually chosen after different tryouts.<br>
+     `temperature` -- controls the randomness of the generated audio -- set to be <b>1.7</b> to ensure stylistic discussion is balanced throughout. This number is manually chosen after different try-outs.<br>
 Please refer to <i>results</i> section for detailed discussions on hyper-parameters.<br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
@@ -71,12 +77,6 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
       |cu_dnnlstm_2 (CuDNNLSTM)  |(1, None, 1024)  |5431296  |  
       |cu_dnnlstm_3 (CuDNNLSTM)  |(1, None, 1024)  |6297600  |  
       |dense_3 (Dense)           |(1, None, 3476)  |3562900  |
-
-#### Data
-- All data used in this project are personally obtained. For our generative tasks are seperated into audio and text production, raw data trained also include each seperate audio files and text files.<br>
-- Our audio datas are originally videos obtained from [Youtube](https://www.youtube.com/) and [bilibili](https://www.bilibili.com/).
-- [audio_midi.py](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio_midi.py) contains all videos acquired. This python file is then imported into [audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb) for processing and conversions into `.wav` files (saved) [audio_wav](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_wav) and eventually into `MIDI` (saved) [audio_mid](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/audio_mid).<br>
-- Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
 
 ## Code
 
