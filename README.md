@@ -47,8 +47,23 @@ Ideas and concepts of this work references a few prior projects and papers liste
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
 The model we use is a Long Short-Term Memory network (i.e. LSTM), which is able to recognise and encode long-term patterns.<br>
-For our particular implemented model, we leveraged pre-trained model, detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer). <br>
+For our particular implemented network, we leveraged on the model, detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer) and trained it by feeding in our data in MIDI format for 200 epoches. <br>
 For generating music, we used the model detailed in predict.py [here](https://github.com/Skuldur/Classical-Piano-Composer).<br>
+The structure of our LSTM network is as following:
+      |Layer (type)              |dimensionality of the output space|Fraction of the input units to drop|
+      |--------------------------|----------------------------------|-----------------------------------|
+      |keras.LSTM                |          256                     |                                   |
+      |keras.Dropout             |                                  |            0.3                    |
+      |keras.LSTM                |          512                     |                                   |
+      |keras.Dropout             |                                  |            0.3                    |
+      |keras.LSTM.               |          256                     |                                   |
+      |keras.Dense               |          256                     |                                   |
+      |keras.Dropout             |                                  |            0.3                    |
+      |keras.Dense               |      n_vocab = 526               |                                   |
+      |keras.Activation          |                   softmax activation function                        |
+      
+
+
 
 	- MelodyRNN:<br>
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
@@ -263,9 +278,12 @@ The only additional package to install for this file is [jieba](https://github.c
 #### [train_model.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb)
 This notebook is trained on a set-up keras backend.<br>
 `Music21` is implemented for computer-aided musicology. Installation can be done by:
+<pre><code>!pip install Music21 --user</code></pre>
+<pre><code>!pip install Pickle --user</code></pre>
+<pre><code>!pip install Keras --user</code></pre>
 
 #### [predict.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb.ipynb)
-This notebook is trained on a set-up keras backend. With the same utlization of package `Music21`.
+This notebook is trained on a set-up keras backend. With the same utlization of package `Music21`. Installations are the same as those in train_model.ipynb
 
 ## Reference
 
