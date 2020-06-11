@@ -35,12 +35,6 @@ Ideas and concepts of this work references a few prior projects and papers liste
 
 (10 points)
 
-In the final submission, this section will describe both the data you use for this project and any pre-existing models/neural nets. For each you should provide the name, a textual description, and a link. If there is a paper (for neural net) link that as well.
-- Such and such Neural Net. The short description of this neural net.
-  - [link to code]().
-  - [Title of Paper with Link]().
-- Training data. Short description of training data including bibliographic info. [link to data]().
-
 #### Model
 Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. <br>
 1. Audio Generation
@@ -54,7 +48,7 @@ This model is made available from `magenta.music`. It is an LSTM-based language 
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
-2. Lyrics Generation  
+2. Lyrics Generation<br>
 We train two word-level text generation models using RNN and LSTM. The entire lyrics corpus contains 3476 unique words (some are English words) and we slice the corpus into sequences of length 20 (20 words) for training. The batch size is set to be 64. The structure of these two models are as follows:
     - RNN:
 
