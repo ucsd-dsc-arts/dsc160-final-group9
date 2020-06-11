@@ -48,7 +48,7 @@ This model is made available from `magenta.music`. It is an LSTM-based language 
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
-2. Lyrics Generation<br>
+2. Lyrics Generation<br><br>
 We train two word-level text generation models using RNN and LSTM. The entire lyrics corpus contains 3476 unique words (some are English words) and we slice the corpus into sequences of length 20 (20 words) for training. The batch size is set to be 64. The structure of these two models are as follows:
     - RNN:
 
