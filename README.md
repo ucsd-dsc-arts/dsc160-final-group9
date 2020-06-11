@@ -78,8 +78,6 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
 
 (20 points)
 
-This section will link to the various code for your project (stored within this repository). Your code should be executable on datahub, should we choose to replicate your result. This includes code for:
-
 - [Audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
 - [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
 - code for preprocessing
@@ -88,17 +86,9 @@ This section will link to the various code for your project (stored within this 
 - [train_model](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb): complete '.ipynb' file for training lstm model.
 - [generate_music](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb): complete '.ipynb' file for generating music with lstm model.
 
-Link each of these items to your .ipynb or .py files within this seection, and provide a brief explanation of what the code does. Reading this section we should have a sense of how to run your code.
-
 ## Results
 
 (30 points)
-
-This section should summarize your results and will embed links to documentation to significant outputs. This should document both process and show artistic results. This can include figures, sound files, videos, bitmaps, as appropriate to your generative art idea. Each result should include a brief textual description, and all should be listed below:
-
-- image files (`.jpg`, `.png` or whatever else is appropriate)
-- audio files (`.wav`, `.mp3`)
-- written text as `.pdf`
 
 ### Audio Generation
 <b>Classical-Piano-Composer</b>
@@ -138,15 +128,6 @@ While it is difficult to tell directly from this comparison why the reason for t
 ## Discussion
 
 (30 points, three to five paragraphs)
-
-The first paragraph should be a short summary describing your results.
-
-The subsequent paragraphs could address questions including:
-- Why is this culturally innovative?
-- How does your generative computational approach differ from traditional art/music/cultural production?
-- How do your results relate to broader social, cultural, economic political, etc., issues?
-- What are the ethical concerns for this form of generative art?
-- In what future directions could you expand this work?
 
 The results of our project can be broken into two parts: audio generation and lyrics generation. First, the audio generation uses Skuldur’s Classical Piano Composer model to output a segment of melody. The input audio files for this model are obtained from YouTube and Bilibili websites, which include a number of selected popular TikTok songs. As shown in the above result section, the generative audio is indeed not melodic and euphonic enough. However, there are some repeated movements of sounds throughout this audio that are actually similar rhythms founded in the input Tiktok music as we can tell. One thing to be noticed is that this generative music has many redundant notes which can implicitly demonstrate the repetitive and similar notes used in Tiktok music. To compare with this result, we also use the melodyRNN to generate another segment by training the song “Meow Meow Meow”, which is also a popular song in Tiktok. The output from this model tends to have a higher pitch and a faster tempo. It reveals the fact that this song has a satisfying harmony with multiple notes layering on each other and a cheerful mood. Second, the lyrics generation deploys two neural network models: RNN and LSTM. Both models generate appropriate lyrics based on the input from selected Tiktok songs. The results from RNN have a prominent Chinese antique style. For example, the diction in the lyrics are traditionally exquisite: icy river ink(冰河墨), bluestone(青石板), and samsara(轮回). In addition, both lyrics have the theme of the love relationship. These outputs from models are greatly representative among all the Chinese Tiktok prevalent songs, which use traditional style elements in lyrics to depict some love stories.
 
@@ -201,11 +182,6 @@ In addition, we also have some concerns about our project such as the limitation
 - Yuanbo Shi, yus263@ucsd.edu
 
 ## Technical Notes and Dependencies
-
-Any implementation details or notes we need to repeat your work.
-- Additional libraries you are using for this project
-- Does this code require other pip packages, software, etc?
-- Does this code need to run on some other (non-datahub) platform? (CoLab, etc.)
 
 Our codes are solely based on Python programming language. The following packages and libraries are therefore all of Python dependencies. While most ipynb files include necessary pip installs within themselves, there are some additional installs needed.<br>
 #### [audio-to-midi.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb)
@@ -275,8 +251,8 @@ Since models for lyrics generation uses the GPU variant of RNN and LSTM layers, 
 
 ## Reference
 
-All references to papers, techniques, previous work, repositories you used should be collected at the bottom:
 - Papers
+  - https://arxiv.org/abs/1712.05274
 - Repositories
 	- https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn
 	- https://github.com/ytdl-org/youtube-dl
