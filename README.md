@@ -84,11 +84,10 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
 
 - [Audio-to-midi](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/audio-to-midi.ipynb): `.ipynb` file for audio data acquisition and preprocessing from miscellaneous video formats to `.wav` audio format, and eventually conversions into `.mid` MIDI file types
 - [MelodyRNN](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/MelodyRNN.ipynb): complete `.ipynb` file with MelodyRNN's modelling and generative tasks
-- code for preprocessing
-- [Melody_Analysis.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/melody_analysis.ipynb): `ipynb` files for MelodyRNN's result analyses
+- [Melody_Analysis](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/melody_analysis.ipynb): `ipynb` files for MelodyRNN's result analyses
 - [Lyrics_generation_rnn](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/Lyrics_generation_rnn.ipynb): complete `.ipynb` file with lyrics processing, model training and lyrics generation.
-- [train_model](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb): complete '.ipynb' file for training lstm model.
-- [generate_music](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb): complete '.ipynb' file for generating music with lstm model.
+- [train_model](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb): complete `.ipynb` file for Classical-Piano-Composer's LSTM model training.
+- [generate_music](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb): complete `.ipynb` file for Classical-Piano-Composer's LSTM audio generation.
 
 ## Results
 
