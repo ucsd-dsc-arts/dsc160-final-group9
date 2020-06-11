@@ -194,6 +194,10 @@ In addition, we also have some concerns about our project such as the limitation
   - Completed generating music with PianoComposer's mdoel
 	- Drafted corresponding sections of <i>Technical Notes and Dependencies</i> for <i>train_model.ipynb</i>. 
 - Yuanbo Shi, yus263@ucsd.edu
+	- Summary in result
+	- Made the result video
+	- Made the presentation video
+	- Lyric translation
 
 ## Technical Notes and Dependencies
 
