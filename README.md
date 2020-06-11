@@ -47,8 +47,8 @@ For generating music, we used the model detailed in predict.py [lstm](https://gi
 This model is made available from `magenta.music`. It is an LSTM-based language model for musical notes, and is best at continuing a NoteSequence given to it.<br>
 For our particular implemented model, we leveraged pre-trained [basic_rnn](http://download.magenta.tensorflow.org/models/basic_rnn.mag) (.mag bundle files) supplied by magenta, and is then trained on the outcome of that Classical-Piano-Composer produced above. <br>
 Two key hyper-parameters specially tuned and finalized are 
-     - `temperature` -- controls the randomness of the generated audio <br>
-     This is 
+     &nbsp;&nbsp; - `temperature` -- controls the randomness of the generated audio <br>
+     &nbsp;&nbsp; This is 
      - `num_steps` -- controls the length of the generated melody<br>
 Details regarding this model is linked [here](https://github.com/tensorflow/magenta/tree/master/magenta/models/melody_rnn).
 
