@@ -42,10 +42,10 @@ Ideas and concepts of this work references a few prior projects and papers liste
 - Each of these scraped song's lyrics are saved as individual `rtf` files in [lyrics](https://github.com/ucsd-dsc-arts/dsc160-final-group9/tree/master/data/lyrics).
 
 #### Model
-Our project can be broken down to two major parts, that is audio generation and text generation. With different goals of applications, each are implemented with different models as well. <br>
+With different goals of applications (audio/text generation), each part is therefore implemented with different models.<br>
 1. Audio Generation
 	- Classical-Piano-Composer:<br>
-The model we use is a Long Short-Term Memory network, which is able to recognise and encode long-term patterns.<br>
+The model we use is a Long Short-Term Memory network (i.e. LSTM), which is able to recognise and encode long-term patterns.<br>
 For our particular implemented model, we leveraged pre-trained model, detailed in lstm.py [here](https://github.com/Skuldur/Classical-Piano-Composer). <br>
 For generating music, we used the model detailed in predict.py [here](https://github.com/Skuldur/Classical-Piano-Composer).<br>
 
