@@ -112,7 +112,8 @@ We train two word-level text generation models using RNN and LSTM. The entire ly
 
 (30 points)
 
-- This is the music piece we made with the generated music and lyrics: [Final Result Video](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/result/final_result/result_with_chinese.mp4)
+- This is a video presenting our generated music and lyrics: [Final Result Video](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/results/final_result/result_with_chinese.mp4). 
+- Please note that while the musical background and displaying text are outputs of our models, the singing voice is not a synthesized audio piece, but of actual human singing recording.
 
 ### Audio Generation
 <b>Classical-Piano-Composer</b>
