@@ -52,14 +52,14 @@ For generating music, we used the model detailed in predict.py [here](https://gi
 The structure of our LSTM network is as following:
       |Layer (type)              |dimensionality of the output space|Fraction of the input units to drop|
       |--------------------------|----------------------------------|-----------------------------------|
-      |keras.LSTM                |          256                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.LSTM                |          512                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.LSTM.               |          256                     |             \                     |
-      |keras.Dense               |          256                     |             \                     |
-      |keras.Dropout             |           \                      |            0.3                    |
-      |keras.Dense               |      n_vocab = 526               |             \                     |
+      |keras.LSTM                |          256                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.LSTM                |          512                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.LSTM.               |          256                     |             N/A                     |
+      |keras.Dense               |          256                     |             N/A                     |
+      |keras.Dropout             |           N/A                      |            0.3                    |
+      |keras.Dense               |      n_vocab = 526               |             N/A                     |
 
 
 
