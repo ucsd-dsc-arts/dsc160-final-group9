@@ -305,14 +305,15 @@ The only additional package to install for this file is [jieba](https://github.c
 <pre><code>!pip install jieba --user</code></pre>
 
 #### [train_model.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/train_model.ipynb)
-This notebook is trained on a set-up keras backend.<br>
+This notebook is trained on a set-up keras backend. In case you do not have Keras installed, we have provided the following commands for you:
+<pre><code>!pip install Keras --user</code></pre>
 `Music21` is implemented for computer-aided musicology. Installation can be done by:
 <pre><code>!pip install Music21 --user</code></pre>
+`Pickle` is a module that implements binary protocols for serializing and de-serializing a Python object structure. This is needed in our setup here. 
 <pre><code>!pip install Pickle --user</code></pre>
-<pre><code>!pip install Keras --user</code></pre>
 
 #### [predict.ipynb](https://github.com/ucsd-dsc-arts/dsc160-final-group9/blob/master/code/predict.ipynb.ipynb)
-This notebook is trained on a set-up keras backend. With the same utlization of package `Music21`. Installations are the same as those in train_model.ipynb
+This notebook is trained on a set-up keras backend. With the same utlization of packages `Music21` and `Pickle`. Installations are the same as those in train_model.ipynb
 
 ## Reference
 
